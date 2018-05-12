@@ -26,6 +26,6 @@ public:
 
 	ACharacterController();
 
-
+	void Tick(float DeltaTime) override;
 	
 };

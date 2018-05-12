@@ -7,5 +7,19 @@
 
 ACharacterController::ACharacterController()
 {
-	//camera = GetOwner()->FindComponentByClass<UCameraComponent>();
+	camera = CreateDefaultSubobject<UCameraComponent>("Camera");
+	if (camera != nullptr)
+	{
+		camera->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, 400.0f), FRotator(0.0f, -90.0f, 0.0f));
+	}
+	else 
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Couldn't find Camera component"));
+	}
+	
+}
+
+void ACharacterController::Tick(float DeltaTime)
+{
+	camera->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, 200.0f), FRotator(0.0f, -90.0f, 0.0f));
 }
